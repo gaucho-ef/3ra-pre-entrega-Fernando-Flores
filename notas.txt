@@ -1,0 +1,11 @@
+Objetivos Generales
+- Desarrollar una web django con patron MVT subida a github
+
+Se debe entregar 
+- link de github con el proyecto totalmente subido a la plataforma (mi cuenta en github es: fernandoefrain@live.com.ar)
+- proyecto web django con patron MVT quer incluya:
+	1- Herencia de HTML
+	2- Por lo menos 3 clases en models
+	3- un formulario para insertar datos a todas las clases de tu models
+	4- un formulario para buscar algo en la BD
+	5- Readme que indique el orden en el que se prueban las cosas y donde estan las funcionalidades

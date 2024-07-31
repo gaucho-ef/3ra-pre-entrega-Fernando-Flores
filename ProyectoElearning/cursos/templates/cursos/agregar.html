@@ -1,0 +1,28 @@
+<!-- Agregar.html permite agregar Curso, Profe y Alumno -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar</title>
+</head>
+<body>
+    <h1>Agregar Curso</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ curso_form.as_p }}
+        <button type="submit">Guardar Curso</button>
+    </form>
+    <h1>Agregar Profesor</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ profesor_form.as_p }}
+        <button type="submit">Guardar Profesor</button>
+    </form>
+    <h1>Agregar Alumno</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ alumno_form.as_p }}
+        <button type="submit">Guardar Alumno</button>
+    </form>
+</body>
+</html>

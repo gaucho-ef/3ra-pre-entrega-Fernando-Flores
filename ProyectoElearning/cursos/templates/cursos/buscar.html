@@ -1,0 +1,17 @@
+{% extends 'cursos/base.html' %}
+
+{% block content %}
+<h2>Buscar Curso</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="query" placeholder="Nombre del curso">
+    <button type="submit">Buscar</button>
+</form>
+{% if resultados %}
+    <ul>
+        {% for curso in resultados %}
+            <li>{{ curso.nombre }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

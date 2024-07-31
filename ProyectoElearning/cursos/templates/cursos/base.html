@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plataforma E-learning</title>
+</head>
+<body>
+    <header>
+        <h1>Plataforma E-learning</h1>
+        <nav>
+            <a href="{% url 'index' %}">Inicio</a>
+            <a href="{% url 'buscar' %}">Buscar</a>
+            <a href="{% url 'agregar' %}">Agregar</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
