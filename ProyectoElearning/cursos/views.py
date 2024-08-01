@@ -1,32 +1,42 @@
 # Este views contiene las vistas de la aplicacion cursos
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curso
-from .forms import CursoForm, ProfesorForm, AlumnoForm
+from .forms import CursoForm
 
-def index(request):
+def listar_cursos(request):
     cursos = Curso.objects.all()
-    return render(request, 'cursos/index.html', {'cursos': cursos})
+    return render(request, 'cursos/listar_cursos.html', {'cursos': cursos})
 
-def buscar(request):
+def agregar_curso(request):
     if request.method == 'POST':
-        query = request.POST.get('query')
-        resultados = Curso.objects.filter(nombre__icontains=query)
-        return render(request, 'cursos/buscar.html', {'resultados': resultados})
-    return render(request, 'cursos/buscar.html')
-
-def agregar(request):
-    if request.method == 'POST':
-        curso_form = CursoForm(request.POST)
-        profesor_form = ProfesorForm(request.POST)
-        alumno_form = AlumnoForm(request.POST)
-        if curso_form.is_valid() and profesor_form.is_valid() and alumno_form.is_valid():
-            curso_form.save()
-            profesor_form.save()
-            alumno_form.save()
-            return redirect('index')
+        form = CursoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_cursos')
     else:
-        curso_form = CursoForm()
-        profesor_form = ProfesorForm()
-        alumno_form = AlumnoForm()
-    return render(request, 'cursos/agregar.html', {'curso_form': curso_form, 'profesor_form': profesor_form, 'alumno_form': alumno_form})
+        form = CursoForm()
+    return render(request, 'cursos/agregar_curso.html', {'form': form})
+
+def editar_curso(request, pk):
+    curso = get_object_or_404(Curso, pk=pk)
+    if request.method == 'POST':
+        form = CursoForm(request.POST, instance=curso)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_cursos')
+    else:
+        form = CursoForm(instance=curso)
+    return render(request, 'cursos/editar_curso.html', {'form': form})
+
+def eliminar_curso(request, pk):
+    curso = get_object_or_404(Curso, pk=pk)
+    if request.method == 'POST':
+        curso.delete()
+        return redirect('listar_cursos')
+    return render(request, 'cursos/eliminar_curso.html', {'curso': curso})
+
+def buscar_curso(request):
+    query = request.GET.get('q')
+    resultados = Curso.objects.filter(nombre__icontains=query) if query else Curso.objects.all()
+    return render(request, 'cursos/buscar_curso.html', {'resultados': resultados, 'query': query})

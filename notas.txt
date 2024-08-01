@@ -9,3 +9,5 @@ Se debe entregar
 	3- un formulario para insertar datos a todas las clases de tu models
 	4- un formulario para buscar algo en la BD
 	5- Readme que indique el orden en el que se prueban las cosas y donde estan las funcionalidades
+
+	

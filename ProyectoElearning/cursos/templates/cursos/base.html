@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Plataforma E-learning</title>
+    <title>{% block title %}E-learning Platform{% endblock %}</title>
 </head>
 <body>
     <header>
-        <h1>Plataforma E-learning</h1>
+        <h1>{% block header %}Welcome to E-learning Platform{% endblock %}</h1>
         <nav>
-            <a href="{% url 'index' %}">Inicio</a>
-            <a href="{% url 'buscar' %}">Buscar</a>
-            <a href="{% url 'agregar' %}">Agregar</a>
+            <ul>
+                <li><a href="{% url 'listar_cursos' %}">Cursos</a></li>
+                <li><a href="{% url 'listar_alumnos' %}">Alumnos</a></li>
+                <li><a href="{% url 'listar_profesores' %}">Profesores</a></li>
+            </ul>
         </nav>
     </header>
     <main>
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock %}
     </main>
+    <footer>
+        <p>&copy; 2024 E-learning Platform</p>
+    </footer>
 </body>
 </html>
