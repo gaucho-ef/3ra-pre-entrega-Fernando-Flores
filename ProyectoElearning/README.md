@@ -17,16 +17,12 @@ Este proyecto es una plataforma e-learning desarrollada con Django que permite g
     python -m venv entornoV
     source entornoV/bin/activate  # En Windows usa `entornoV\Scripts\activate`
     '''
-3. Instalar las dependencias:
-    '''sh
-    pip install -r requirements.txt
-    '''
-4. Ejecutar las migraciones:
+3. Ejecutar las migraciones:
     '''sh
     python manage.py makemigrations
     python manage.py migrate
     '''
-5. Iniciar el servidor de desarrollo:
+4. Iniciar el servidor de desarrollo:
     '''sh
     python manage.py runserver
     '''
@@ -35,6 +31,7 @@ Este proyecto es una plataforma e-learning desarrollada con Django que permite g
 - **Inicio**: Muestra los cursos disponibles.
 - **Buscar**: Permite buscar cursos por nombre.
 - **Agregar**: Permite agregar nuevos cursos, profesores y alumnos.
+- **Listar**:  Permite listar todos los cursos, profesores y alumnos.
 
 ## Orden para probar
 1. Iniciar el servidor de desarrollo.

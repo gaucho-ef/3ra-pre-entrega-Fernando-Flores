@@ -4,6 +4,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curso
 from .forms import CursoForm
 
+def index(request):
+    return render(request, 'cursos/index.html')
+
 def listar_cursos(request):
     cursos = Curso.objects.all()
     return render(request, 'cursos/listar_cursos.html', {'cursos': cursos})
