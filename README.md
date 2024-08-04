@@ -1,29 +1,39 @@
 # Tercera pre-entrega Fernando Flores
 
-## Introducción
-Este proyecto consiste en una plataforma e-learning desarrollada con Django. Incluye las siguientes funcionalidades:
+## Descripción
+Este proyecto es una plataforma e-learning desarrollada con Django que permite gestionar cursos, profesores y alumnos.
 
-- Herencia de HTML
-- Modelos para cursos, alumnos y profesores
-- Formularios para CRUD de cada modelo
-- Búsqueda de cursos
+## Requisitos
+- Python 3.8 o superior
+- Django 5.0.7
 
-## Cómo Probar el Proyecto
-
-1. Clonar el repositorio.
-2. Crear y activar un entorno virtual.
-3. Instalar las dependencias con `pip install -r requirements.txt`.
-4. Realizar las migraciones con `python manage.py migrate`.
-5. Ejecutar el servidor con `python manage.py runserver`.
+## Instalación
+1. Clonar el repositorio:
+    '''sh
+    git clone https://github.com/fernandoefrain/tercera-pre-entrega-fernando-flores.git
+    '''
+2. Crear y activar un entorno virtual:
+    '''sh
+    python -m venv entornoV
+    source entornoV/bin/activate  # En Windows usa `entornoV\Scripts\activate`
+    '''
+3. Ejecutar las migraciones:
+    '''sh
+    python manage.py makemigrations
+    python manage.py migrate
+    '''
+4. Iniciar el servidor de desarrollo:
+    '''sh
+    python manage.py runserver
+    '''
 
 ## Funcionalidades
+- **Inicio**: Muestra los cursos disponibles.
+- **Buscar**: Permite buscar cursos por nombre.
+- **Agregar**: Permite agregar nuevos cursos, profesores y alumnos.
+- **Listar**:  Permite listar todos los cursos, profesores y alumnos.
 
-- **Cursos**
-  - Listar, agregar, editar, eliminar cursos.
-  - Buscar cursos por nombre.
-
-- **Alumnos**
-  - Listar, agregar, editar, eliminar alumnos.
-
-- **Profesores**
-  - Listar, agregar, editar, eliminar profesores.
+## Orden para probar
+1. Iniciar el servidor de desarrollo.
+2. Acceder a la página principal: `http://127.0.0.1:8000/`
+3. Navegar a través de las opciones del menú: Inicio, Buscar, Agregar.
