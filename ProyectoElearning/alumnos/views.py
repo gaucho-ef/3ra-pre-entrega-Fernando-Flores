@@ -5,6 +5,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Alumno
 from .forms import AlumnoForm
 
+
+def inicio(request):
+    return render(request, 'alumnos/inicio.html')
+
 def listar_alumnos(request):
     alumnos = Alumno.objects.all()
     return render(request, 'alumnos/listar_alumnos.html', {'alumnos': alumnos})
